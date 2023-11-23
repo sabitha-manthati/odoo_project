@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_customer_payment_analysis">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Customer Payment Report</h2>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>First Sales Date</th>
+                                <th>Total Sale Count</th>
+                                <th>Total Amount</th>
+                                <th>Paid Amount</th>
+                                <th>Balance Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><t t-esc="doc.customer_id.name"/></td>
+                                <td><t t-esc="doc.first_sales_date"/></td>
+                                <td><t t-esc="doc.total_sale_count"/></td>
+                                <td><t t-esc="doc.total_amount"/></td>
+                                <td><t t-esc="doc.paid_amount"/></td>
+                                <td><t t-esc="doc.balance_amount"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
+            </t>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="report_customer_payment"
+        model="customer.payment.report"
+        report_type="qweb-pdf"
+        string="Payment Report"
+        name="customer_payment_report.report_customer_payment_analysis"
+        file="customer_payment_report.report_customer_payment_analysis"
+        menu="False"
+    />
+
+</odoo>
