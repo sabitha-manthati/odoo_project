@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_purchase_dashboard_kanban" model="ir.ui.view">
+            <field name="name">purchase.dashboard.kanban</field>
+            <field name="model">purchase.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="o_kanban_dashboard_top">
+                                <div class="o_kanban_dashboard_stat">
+                                    <div class="o_kanban_stat_text">
+                                        <span class="o_field_stat_string">Total Purchase Orders</span>
+                                        <span class="o_field_stat_number">[('total_purchase_count', 'number')]</span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_dashboard_stat">
+                                    <div class="o_kanban_stat_text">
+                                        <span class="o_field_stat_string">Total Untaxed Amount</span>
+                                        <span class="o_field_stat_number">[('total_untaxed_amount', 'monetary')]</span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_dashboard_stat">
+                                    <div class="o_kanban_stat_text">
+                                        <span class="o_field_stat_string">Total Purchase Amount</span>
+                                        <span class="o_field_stat_number">[('total_purchase_amount', 'monetary')]</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    
+</odoo>

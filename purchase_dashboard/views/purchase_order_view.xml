@@ -1,0 +1,44 @@
+<odoo>
+ 
+    <record id="view_purchase_order_tree_with_dashboard" model="ir.ui.view">
+        <field name="name">purchase.order.tree.with.dashboard</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="arch" type="xml">
+
+            <field name="name" position="after">
+            <!-- Add other existing fields in the purchase order tree -->
+                <field name="total_purchase_count" widget="statinfo"/>
+                <field name="total_untaxed_amount" widget="statinfo" options='{"currency_field": "currency_id"}'/>
+                <field name="total_purchase_amount" widget="statinfo" options='{"currency_field": "currency_id"}'/>
+        </field>
+        </field>
+    </record>
+
+    <!-- Purchase Order Kanban View with Dashboard
+    <record id="view_purchase_order_kanban_with_dashboard" model="ir.ui.view">
+        <field name="name">purchase.order.kanban.with.dashboard</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kanban"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+            <field name="total_purchase_count" widget="statinfo"/>
+            <field name="total_untaxed_amount" widget="statinfo" options='{"currency_field": "currency_id"}'/>
+            <field name="total_purchase_amount" widget="statinfo" options='{"currency_field": "currency_id"}'/>
+        </field>
+        </field>
+    </record> -->
+    
+        
+  
+<!-- 
+        <record id="menu_purchase_order_tree_with_dashboard" model="ir.ui.menu">
+            <field name="name">Purchase Orders</field>
+            <field name="sequence" eval="1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('purchase.group_purchase_user')])]"/>
+            <field name="action" ref="purchase.view_purchase_order_tree_with_dashboard"/>
+            <field name="parent_id" ref="menu_purchase_root"/>
+        </record> -->
+
+    
+</odoo>
